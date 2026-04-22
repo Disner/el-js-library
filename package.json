@@ -1,0 +1,27 @@
+{
+  "name": "el-js-library",
+  "version": "1.0.0",
+  "description": "Mini-biblioteca JS de manipulação DOM sem dependências. 2kb, ~65 linhas, zero build step.",
+  "main": "js/el.js",
+  "files": [
+    "js/el.js",
+    "js/el.min.js",
+  ],
+  "keywords": [
+    "dom",
+    "manipulation",
+    "chaining",
+    "wrapper",
+    "lightweight",
+    "zero-dependencies",
+    "vanilla-js",
+    "frontend"
+  ],
+  "author": "Elton Disner <https://elton.disner.com.br>",
+  "license": "MIT",
+  "homepage": "https://disner.com.br/demo-el-js-library",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Disner/el-js-library.git"
+  }
+}
