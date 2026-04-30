@@ -98,8 +98,8 @@ el('#box')
 ## Estrutura do repositório
 
 ```
-el-library/
-├── index.php       # Documentação interativa
+el-js-library/
+├── index.html       # Documentação interativa
 ├── css/
 │   └── el-demo.css    # Estilos da demo
 └── js/
