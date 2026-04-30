@@ -1,118 +1,118 @@
 # el() + wrap()
 
-Mini-biblioteca de manipulação DOM sem dependências. ~65 linhas, zero build step, funciona em qualquer browser moderno.
+Minimal DOM manipulation library with zero dependencies. ~65 lines, zero build step, works in any modern browser.
 
-**[→ Demo interativa](https://disner.com.br/demo-el-js-library)**
+**[→ Interactive Demo](https://disner.com.br/demo-el-js-library)**
 
 ---
 
-## Uso
+## Usage
 
-Copie `js/el.min.js` para o seu projeto e inclua antes do seu script:
+Copy `js/el.min.js` to your project and include it before your script:
 
 ```html
 <script src="js/el.min.js"></script>
 ```
 
 ```js
-// Seleciona um ou vários elementos
-el('#meu-id').css('color', 'red');
-el('.cards').addClass('ativo');
+// Select one or more elements
+el('#my-id').css('color', 'red');
+el('.cards').addClass('active');
 
 // Chaining
 el('#box')
   .css('width', '200px')
-  .addClass('destaque')
-  .on('click', () => console.log('clicou'));
+  .addClass('highlight')
+  .on('click', () => console.log('clicked'));
 ```
 
 ---
 
 ## API
 
-### Seleção
+### Selection
 
-| Método | Retorna | Descrição |
-|--------|---------|-----------|
-| `el(selector)` | `wrap` | Seleciona elementos via CSS selector, Node, NodeList ou Array |
-| `.find(sel)` | `wrap` | Busca descendentes dentro do set atual |
-| `.closest(sel)` | `wrap` | Sobe na árvore até encontrar o ancestral mais próximo |
-| `.eq(i)` | `wrap` | Elemento pelo índice (zero-based) |
-| `.first()` | `wrap` | Primeiro elemento do set |
-| `.last()` | `wrap` | Último elemento do set |
-| `.length` | `number` | Quantidade de elementos no set |
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `el(selector)` | `wrap` | Selects elements via CSS selector, Node, NodeList, or Array |
+| `.find(sel)` | `wrap` | Searches descendants within the current set |
+| `.closest(sel)` | `wrap` | Traverses up the tree to find the closest ancestor |
+| `.eq(i)` | `wrap` | Element by index (zero-based) |
+| `.first()` | `wrap` | First element in the set |
+| `.last()` | `wrap` | Last element in the set |
+| `.length` | `number` | Number of elements in the set |
 
-### Estilos
+### Styles
 
-| Método | Retorna | Descrição |
-|--------|---------|-----------|
-| `.css(prop)` | `string` | Lê o valor computado da propriedade |
-| `.css(prop, value)` | `wrap` | Aplica o estilo inline |
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `.css(prop)` | `string` | Reads the computed value of the property |
+| `.css(prop, value)` | `wrap` | Applies the inline style |
 
-### Conteúdo
+### Content
 
-| Método | Retorna | Descrição |
-|--------|---------|-----------|
-| `.html()` | `string` | Lê o innerHTML |
-| `.html(value)` | `wrap` | Define o innerHTML (interpreta tags) |
-| `.text()` | `string` | Lê o textContent |
-| `.text(value)` | `wrap` | Define o textContent (seguro contra XSS) |
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `.html()` | `string` | Reads innerHTML |
+| `.html(value)` | `wrap` | Sets innerHTML (interprets tags) |
+| `.text()` | `string` | Reads textContent |
+| `.text(value)` | `wrap` | Sets textContent (XSS-safe) |
 
-### Atributos e dados
+### Attributes & Data
 
-| Método | Retorna | Descrição |
-|--------|---------|-----------|
-| `.attr(name)` | `string` | Lê o atributo |
-| `.attr(name, value)` | `wrap` | Define o atributo |
-| `.data(name)` | `string` | Lê `dataset[name]` |
-| `.data(name, value)` | `wrap` | Define `dataset[name]` |
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `.attr(name)` | `string` | Reads the attribute |
+| `.attr(name, value)` | `wrap` | Sets the attribute |
+| `.data(name)` | `string` | Reads `dataset[name]` |
+| `.data(name, value)` | `wrap` | Sets `dataset[name]` |
 
 ### Classes
 
-| Método | Retorna | Descrição |
-|--------|---------|-----------|
-| `.addClass(cls)` | `wrap` | Adiciona a classe |
-| `.removeClass(cls)` | `wrap` | Remove a classe |
-| `.toggleClass(cls)` | `wrap` | Alterna a classe |
-| `.hasClass(cls)` | `boolean` | Verifica se a classe está presente |
-| `.is(sel)` | `boolean` | Verifica se o 1º elemento bate com o seletor |
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `.addClass(cls)` | `wrap` | Adds the class |
+| `.removeClass(cls)` | `wrap` | Removes the class |
+| `.toggleClass(cls)` | `wrap` | Toggles the class |
+| `.hasClass(cls)` | `boolean` | Checks if the class is present |
+| `.is(sel)` | `boolean` | Checks if the first element matches the selector |
 
 ### DOM
 
-| Método | Retorna | Descrição |
-|--------|---------|-----------|
-| `.append(content)` | `wrap` | Insere HTML string ou Node no final |
-| `.prepend(content)` | `wrap` | Insere HTML string ou Node no início |
-| `.remove()` | `wrap` | Remove os elementos do DOM |
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `.append(content)` | `wrap` | Inserts HTML string or Node at the end |
+| `.prepend(content)` | `wrap` | Inserts HTML string or Node at the beginning |
+| `.remove()` | `wrap` | Removes elements from the DOM |
 
-### Eventos
+### Events
 
-| Método | Retorna | Descrição |
-|--------|---------|-----------|
-| `.on(event, fn)` | `wrap` | Adiciona listener (aplica em todos do set) |
-| `.off(event, fn)` | `wrap` | Remove listener (requer mesma referência de função) |
-| `.each(fn(el, i))` | `wrap` | Itera sobre os elementos do set |
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `.on(event, fn)` | `wrap` | Adds listener (applies to all elements in the set) |
+| `.off(event, fn)` | `wrap` | Removes listener (requires same function reference) |
+| `.each(fn(el, i))` | `wrap` | Iterates over elements in the set |
 
 ---
 
-## Estrutura do repositório
+## Repository Structure
 
 ```
 el-library/
-├── index.php       # Documentação interativa
+├── index.php       # Interactive documentation
 ├── css/
-│   └── el-demo.css    # Estilos da demo
+│   └── el-demo.css    # Demo styles
 └── js/
-    ├── el.min.js  # A biblioteca
-    └── el-demo.js     # Código dos exemplos interativos
+    ├── el.min.js  # The library
+    └── el-demo.js     # Interactive examples code
 ```
 
 ---
 
-## Autor
+## Author
 
-Feito por [Elton Disner](https://elton.disner.com.br)
+Made by [Elton Disner](https://elton.disner.com.br)
 
-## Licença
+## License
 
 MIT
