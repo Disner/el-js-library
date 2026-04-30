@@ -1,7 +1,7 @@
 /**
  * el() + wrap() — Mini-biblioteca de manipulação DOM
  * Autor: Elton Disner <https://elton.disner.com.br>
- * Repositório: https://github.com/Disner/el-library
+ * Repositório: https://github.com/Disner/el-js-library
  * Licença: MIT
  */
 const wrap = nodes => {
